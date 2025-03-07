@@ -6,6 +6,6 @@ const ApplicationSchema = new mongoose.Schema({
   resumeUrl: { type: String, required: true },
   parsedFields: { type: Object, default: {} },
   status: { type: String, enum: ['pending', 'accepted', 'rejected'], default: 'pending' },
-});
+},{ timestamps: true });
 
 export default mongoose.model('Application', ApplicationSchema);

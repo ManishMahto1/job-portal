@@ -1,14 +1,29 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { motion } from 'framer-motion';
 import { FiUser, FiFileText, FiTool, FiCalendar, FiDownload } from 'react-icons/fi';
 import StatusBadge from './StatusBadge.jsx';
-
+import * as jobService from '../services/jobService.js';
 const ApplicationCard = ({ application }) => {
+  const [jobTitle, setJobTitle] = useState('');
+ useEffect(() => {
+    const fetchJob = async () => {
+      try {
+        const jobData = await jobService.getJobById(application.jobId);
+        setJobTitle(jobData.title);
+      } catch (err) {
+        console.error('Error fetching job:', err);
+      } 
+    };
+    fetchJob();
+  }, [application.jobId]);
+ 
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
     hover: { scale: 1.02 }
   };
+  //console.log("application details:", application);
+  
 
   return (
     <motion.div
@@ -35,7 +50,14 @@ const ApplicationCard = ({ application }) => {
         <StatusBadge status={application.status} />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <div className="flex items-center gap-3">
+          <FiCalendar className="text-gray-400 flex-shrink-0" />
+          <div>
+            <p className="text-sm text-gray-600">Job : {jobTitle}</p>
+            
+          </div>
+        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 mt-1">
         <div className="flex items-center gap-3">
           <FiTool className="text-gray-400 flex-shrink-0" />
           <div>
