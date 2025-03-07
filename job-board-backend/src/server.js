@@ -16,7 +16,7 @@ app.use(bodyParser.json()); // Parse JSON data
 app.use(bodyParser.urlencoded({ extended: false })); // Parse URL-encoded data
 
 app.use(cors({
-    origin: 'https://job-portal-ecru-xi.vercel.app/', // Your frontend URL
+    origin: 'https://job-portal-ecru-xi.vercel.app', // Your frontend URL
     credentials: true,
   }));
 
