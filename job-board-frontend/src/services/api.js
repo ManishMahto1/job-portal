@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: "https://job-portal-args.onrender.com/"
+  baseURL: "https://job-portal-args.onrender.com"
 });
 
 api.interceptors.request.use(config => {
