@@ -112,7 +112,7 @@ function Home() {
               </div>
               <h3 className="text-xl font-semibold mb-4">Step {step}</h3>
               <p className="text-gray-600">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.
+              Begin by building a detailed profile that highlights your unique skills, experiences, and career aspirations. 
               </p>
             </motion.div>
           ))}

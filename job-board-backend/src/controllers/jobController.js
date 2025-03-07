@@ -9,6 +9,14 @@ export const getAllJobs = async (req, res, next) => {
   }
 };
 
+export const getJobById = async (req, res, next) => {
+  try {
+    const job = await jobService.getJobById(req.params.id);
+    res.json(job);
+  } catch (err) {
+    next(err);
+  }
+};
 export const createJob = async (req, res, next) => {
   try {
     const job = await jobService.createJob({ ...req.body, recruiterId: req.user.id });

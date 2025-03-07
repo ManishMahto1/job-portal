@@ -23,8 +23,8 @@ function JobCard({ job }) {
         <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs flex items-center">
           <FaMoneyBillWave className="mr-1" /> ${job.salary}
         </span>
-        <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs">
-          {job.type}
+        <span className="bg-green-100 text-green-600 px-3 py-1 rounded-full text-xs">
+          {job.status}
         </span>
         <Link to={`/jobs/${job._id}`} className="text-blue-500">View Details</Link>
       </div>

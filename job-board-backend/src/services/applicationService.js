@@ -5,6 +5,8 @@ import { parseResume } from './resumeParser.js';
 export const createApplication = async ({ candidateId, jobId, resumeUrl }) => {
   if (!resumeUrl) throw new Error('Resume file or link required');
   const parsedFields = await parseResume(resumeUrl);
+  console.log(`Parsed fields for application: ${JSON.stringify(parsedFields)}`);
+  
   const application = new Application({ candidateId, jobId, resumeUrl, parsedFields });
   return await application.save();
 };

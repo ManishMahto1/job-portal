@@ -5,6 +5,11 @@ export const getAllJobs = async (query) => {
   return await Job.find({ status: 'open' }).skip(skip).limit(limit);
 };
 
+export const getJobById = async (id) => {
+  const job = await Job.findById(id);
+  if (!job || job.status !== 'open') throw new Error('Job not found');
+  return job;
+};
 export const createJob = async (jobData) => {
   const job = new Job(jobData);
   return await job.save();
